@@ -1,0 +1,36 @@
+
+2026-06-28 15:55:48,687 - PyDev - INFO - ------ New Session Started for PyDev ------
+2026-06-28 15:55:48,688 - PyDev - INFO - Logging continued in workflow: 0ef60e2a-c427-4b3b-961c-600c8d22991c
+2026-06-28 15:55:51,999 - PyDev - INFO - Query received from DevManager: CONTEXT:
+The function signature is `def is_leap_year(year):`.
+Rules:
+1. A year is a leap year if it is divisible by 4.
+2. EXCEPT century years (divisible by 100).
+3. Century years are leap years ONLY IF also divisible by 400.
+This can be translated to:
+- If year % 400 == 0, it's a leap year.
+- Else if year % 100 == 0, it's not a leap year.
+- Else if year % 4 == 0, it's a leap year.
+- Else, it's not a leap year.
+
+QUERY:
+Write the `is_leap_year(year)` function according to the provided rules. Then, call `run_python_tests(solution_code=<your_function_code>)` to verify it. If it fails, fix the function based on the test results and re-run the tests. Once all tests pass, provide the final function code.
+2026-06-28 15:55:54,047 - PyDev - INFO - Initiating tool call: run_python_tests
+2026-06-28 15:55:54,047 - PyDev - INFO - Tool arguments: {
+  "solution_code": "\ndef is_leap_year(year):\n    if year % 400 == 0:\n        return True\n    elif year % 100 == 0:\n        return False\n    elif year % 4 == 0:\n        return True\n    else:\n        return False\n"
+}
+2026-06-28 15:55:54,099 - PyDev - INFO - Tool execution successful
+2026-06-28 15:55:54,099 - PyDev - INFO - Tool response: PASS: all tests passed.
+ALL_TESTS_PASSED
+
+2026-06-28 15:55:55,278 - PyDev - INFO - PyDev response: ```python
+def is_leap_year(year):
+    if year % 400 == 0:
+        return True
+    elif year % 100 == 0:
+        return False
+    elif year % 4 == 0:
+        return True
+    else:
+        return False
+```
