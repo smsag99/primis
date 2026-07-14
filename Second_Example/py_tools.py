@@ -1,9 +1,3 @@
-"""A Python-testing tool, packaged in Nexus's tool format.
-
-This is the ONLY thing that differs from the EDA demo: there, the tool
-compiled+simulated Verilog; here, it runs a Python solution against a fixed
-golden test. The agent, supervisor, and loop stay identical.
-"""
 import os, subprocess
 
 HERE      = os.path.dirname(__file__)
@@ -15,7 +9,6 @@ def _strip_fences(code: str) -> str:
     return "\n".join(lines).strip()
 
 def run_python_tests(solution_code: str) -> str:
-    """Write the candidate solution, run the fixed golden test, return status."""
     os.makedirs(WORK_DIR, exist_ok=True)
     # the golden test does `from solution import is_leap_year`, so the
     # candidate code must live next to it as solution.py

@@ -9,30 +9,12 @@ llm_config = {
     "base_url": "https://generativelanguage.googleapis.com/v1beta/openai/",
 }
 
-# (B) Local, fully offline (privacy-preserving angle from the JD) -- needs `ollama serve`
-# llm_config = {
-#     "api_key": "ollama",                      # any non-empty string
-#     "model": "qwen2.5-coder:7b",
-#     "base_url": "http://localhost:11434/v1",
-# }
-
-# (C) OpenAI
-# llm_config = {
-#     "api_key": os.environ.get("OPENAI_API_KEY", ""),
-#     "model": "gpt-4o",
-#     "base_url": "https://api.openai.com/v1",
-# }
 
 SPEC = """\
 Implement a Verilog module named `alu` with this exact interface:
 
     module alu(input [7:0] a, b, input [1:0] op, output reg [7:0] y);
 
-Behavior (combinational):
-    op = 2'b00 : y = a + b      (ADD)
-    op = 2'b01 : y = a - b      (SUB)
-    op = 2'b10 : y = a | b      (OR)
-    op = 2'b11 : y = a & b      (AND)
 
 After writing the module, call run_iverilog(design_code=<your full module>) to
 verify it against the golden testbench. If it does not PASS, read the failing
@@ -72,8 +54,6 @@ def main():
     supervisor.register_agent(rtl_engineer)
     supervisor.display_agent_graph()
 
-    # The supervisor delegates to RTLEngineer, whose internal loop calls the
-    # iverilog tool, reads failures, and fixes the design automatically.
     result = supervisor.chat(SPEC)
     print("\n=== FINAL RESULT ===\n")
     print(result)

@@ -1,5 +1,3 @@
-# Golden test -- the fixed contract. The agent NEVER edits this; it only
-# changes solution.py until every case here passes.
 from solution import is_leap_year
 
 CASES = [

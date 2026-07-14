@@ -1,10 +1,7 @@
-
-
-
 import os
-import gemini_patch  # noqa: F401  -- Gemini compatibility shim; import before building agents
+import gemini_patch  
 from primisai.nexus.core import Agent, Supervisor
-from py_tools import run_python_tool          # <-- the only swapped import
+from py_tools import run_python_tool        
 
 llm_config = {
     "api_key": os.environ.get("GOOGLE_API_KEY", ""),
@@ -40,7 +37,7 @@ def main():
     pydev = Agent(
         "PyDev",
         llm_config,
-        tools=[run_python_tool],            # <-- the only swapped tool
+        tools=[run_python_tool],            
         use_tools=True,
         system_message=(
             "You are a Python engineer. You write a function and verify it with the "
